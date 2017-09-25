@@ -13,23 +13,19 @@
  */
 package org.openmrs.module.reporting.web.reports;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.openmrs.api.context.Context;
 import org.openmrs.module.reporting.report.definition.service.ReportDefinitionService;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
-/**
- *
- */
-public class RunReportListController extends SimpleFormController {
-	
-	/**
-	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
-	 */
-	@Override
-	protected Object formBackingObject(HttpServletRequest request) throws Exception {
-		return Context.getService(ReportDefinitionService.class).getAllDefinitions(false);
+
+@Controller
+@RequestMapping("/")
+public class RunReportListController {
+
+	@RequestMapping(method=RequestMethod.GET)
+	public String initializeForm(ModelMap model) {
+		// Perform and Model / Form initialization
+		
 	}
-	
 }
